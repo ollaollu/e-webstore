@@ -5,6 +5,11 @@ class Picture < ActiveRecord::Base
 										  :large    => ['600>',      :jpg, :quality => 70],
 										  :retina   => ['1200>',     :jpg, :quality => 30]
 										}
+
+	validates_attachment :image,
+					    :presence => true,
+					    :size => { :in => 0..5.megabytes },
+					    :content_type => { content_type: ["image/jpg", "image/jpeg", "image/png"] }										
 	
 	
 end
