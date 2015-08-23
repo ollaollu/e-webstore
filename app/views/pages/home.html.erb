@@ -1,46 +1,75 @@
 		<div class="container">
             <div class="page-header"><h3>Alpha Watches</h3></div>
-                  
+                
             <div class="row">
-                <div class="lead">
-                    <p>
-                        WELCOME! WELCOME! WELCOME!
-                    </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                                Aenean commodo ligula eget dolor. Aenean massa. 
-                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                            </p>                    
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <%= image_tag("slide_1.jpg", :width => "100%") %>
+                  <div class="carousel-caption">
+
+                  </div>
                 </div>
-                <div class="blockquote">
-                    The child that says it will not allow the mother to sleep,
-                    this same child will not sleep.
+
+                <div class="item">
+                  <%= image_tag("slide_2.jpg", :width => "100%") %>
+                  <div class="carousel-caption">
+
+                  </div>
                 </div>
+
+                <div class="item">
+                  <%= image_tag("slide_3.jpg", :width => "100%") %>
+                  <div class="carousel-caption">
+
+                  </div>
+                </div>
+
+                <div class="item">
+                  <%= image_tag("slide_4.jpg", :width => "100%") %>
+                  <div class="carousel-caption">
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
+            </div>  
             
-            <div class="page-header"><h4>Our Collection</h4></div>
+            <hr>
 
             <div class="row">
-                <div class="lead">
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                    Aenean commodo ligula eget dolor. Aenean massa. 
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                    </p>                    
-                </div>
+                <p>
+                    At Alpha watches, we are all about bringing modern fashion and everything it entails
+                    right to your wrists. Our products include a wide variety of wristwatches that have not just been handpicked but also been broken down to categories on how they fit into the current ever-changing fashion industry. Here, you will find wristwatches to match every possible occation you can think of and even more..
+                </p>
             </div>
+
+            <div class="page-header"><h4>Our Collection</h4></div>
 
             <div class="row">                
                 <div class="col-sm-4">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <p>
-                                Trendy
-                            </p>
-                        </div>
                         <div class="panel-body">
+                            <%= image_tag("trendy.jpg", :class => "img-responsive", :alt => "trendy") %>
                             <p>
                                 Our trendy line of timepieces have been engineered in design to fit whatever occasion. All you have to do is put it on and dazzle away! 
                             </p>
@@ -49,12 +78,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <p>
-                                Sport
-                            </p>                            
-                        </div>
                         <div class="panel-body">
+                            <%= image_tag("sport.jpg", :class => "img-responsive", :alt => "sport") %>
                             <p>
                                 What if you needed a timepiece for that time of the day when you go jogging
                                 or you walk your pet? Well the Sport line is the fantastic choice for you
@@ -64,12 +89,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <p>
-                                Magnum
-                            </p>                            
-                        </div>
                         <div class="panel-body">
+                            <%= image_tag("magnum.jpg", :class => "img-responsive", :alt => "magnum") %>
                             <p>
                                 All our timepieces speak volumes but the Magnum line speaks everything you want 
                                 it to and even more! The top of the food chain!
@@ -77,6 +98,41 @@
                         </div>
                     </div>
                 </div>                
-            </div>            
+            </div>
+
+            <div class="row">                
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <%= image_tag("trendy.jpg", :class => "img-responsive", :alt => "trendy") %>
+                            <p>
+                                Our trendy line of timepieces have been engineered in design to fit whatever occasion. All you have to do is put it on and dazzle away! 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <%= image_tag("sport.jpg", :class => "img-responsive", :alt => "sport") %>
+                            <p>
+                                What if you needed a timepiece for that time of the day when you go jogging
+                                or you walk your pet? Well the Sport line is the fantastic choice for you
+                            </p>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <%= image_tag("magnum.jpg", :class => "img-responsive", :alt => "magnum") %>
+                            <p>
+                                All our timepieces speak volumes but the Magnum line speaks everything you want 
+                                it to and even more! The top of the food chain!
+                            </p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
                         
         </div>

@@ -53,3 +53,7 @@ gem 'paperclip', '~> 4.3.0'
 
 # Amazon gem for image upload to Amazon web services
 gem 'aws-sdk', '~> 2.1.15'
+
+# Specifying Sprockets to see if it fixes image_tag issues in 3.3
+gem 'sprockets', '~> 3.2.0'
+

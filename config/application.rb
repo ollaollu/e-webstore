@@ -22,5 +22,9 @@ module Webstore
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # To make the other folders in asset pipeline be available to the application
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+        
   end
 end
