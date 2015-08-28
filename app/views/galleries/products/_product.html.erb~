@@ -12,8 +12,8 @@
                         </div>          
                         <div class="col-xs-12 col-sm-5 text-center">
                             <% product.pictures.each do |image| %>
-				<%= image_tag first_picture(product.pictures, image, :preview), :class => "img-responsive" %>
-			    <% end %>
+						        <%= image_tag product.pictures.first.image.url(:preview), :class => "img-responsive" %>
+							<% end %>
                         </div>
 
                         <div class="col-xs-12 col-sm-12">

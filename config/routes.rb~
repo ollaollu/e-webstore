@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  get 'carts/create'
-
-  get 'carts/destroy'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'pages#home'
 
   get '/index', to: 'pages#home'
   get '/about', to: 'pages#about'
   get '/gallery', to: 'galleries#index'
+  get '/contact', to: 'contacts#new'
+  post '/contact/subscribe', to: 'contacts#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

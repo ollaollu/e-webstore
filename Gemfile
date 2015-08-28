@@ -59,3 +59,6 @@ gem 'aws-sdk', '~> 2.1.15'
 
 # Ohm gem
 gem 'ohm', '~> 2.3.0'
+
+# Gibbon gem to help with Mailchimp integration
+gem 'gibbon', git: 'https://github.com/amro/gibbon.git', branch: 'api_v2'

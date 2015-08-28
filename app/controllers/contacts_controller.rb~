@@ -1,0 +1,19 @@
+class ContactsController < ApplicationController
+
+  def new
+
+  end
+
+  def create
+    @list_id = ENV['MAILCHIMP_LIST_ID']
+    gb = Gibbon::API.new
+
+    gb.lists.subscribe({
+      :id => @list_id,
+      :email => {:email => "ollaollu@gmail.com"},
+      :merge_vars => {:FULLNAME => "ola olu", :MESSAGE => "hello"},
+      :double_optin => false
+      })
+  end
+
+end
