@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/amro/gibbon.git
-  revision: c393913cfa98e014333337542a88cad047586f4b
-  branch: api_v2
-  specs:
-    gibbon (1.2.1)
-      httparty
-      multi_json (>= 1.9.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,16 +61,18 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
+    gibbon (2.0.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
     hiredis (0.6.0)
-    httparty (0.13.5)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -107,7 +100,7 @@ GEM
     msgpack (0.5.12)
     msgpack (0.5.12-x86-mingw32)
     multi_json (1.11.2)
-    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nested_form (0.3.2)
     nido (1.0.0)
     nokogiri (1.6.6.2)
@@ -220,7 +213,7 @@ DEPENDENCIES
   aws-sdk (~> 2.1.15)
   byebug
   coffee-rails (~> 4.1.0)
-  gibbon!
+  gibbon (~> 2.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   ohm (~> 2.3.0)

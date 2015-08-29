@@ -1,19 +1,21 @@
 class ContactsController < ApplicationController
 
-  def new
-
+  def index
+    
   end
 
   def create
-    @list_id = ENV['MAILCHIMP_LIST_ID']
-    gb = Gibbon::API.new
-
-    gb.lists.subscribe({
-      :id => @list_id,
-      :email => {:email => params[:email]},
-      :merge_vars => {:FULLNAME => params[:fullname], :MESSAGE => params[:message]},
-      :double_optin => false
-      })
+    gb = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
+    list_id = ENV['MAILCHIMP_LIST_ID']
+    gb.lists(list_id).members.create(
+      body: {
+        email_address: params[:email],
+        status: 'subscribed',
+        merge_fields: {"FULLNAME": params[:fullname], "MESSAGE": params[:message]}
+    })
+    flash[:success] = "Your inquiry has been submitted"
+    flash.keep
+    redirect_to root_path
   end
 
 end

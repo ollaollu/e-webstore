@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CartsControllerTest < ActionController::TestCase
+class CartProductsControllerTest < ActionController::TestCase
   test "should get create" do
     get :create
     assert_response :success
