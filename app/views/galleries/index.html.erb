@@ -1,5 +1,39 @@
-
 <div class="page-header"><h3>OUR GALLERY</h3></div>
-	<div class="row">
-	<%= render :partial => "/galleries/products/product", :collection => @products %>
-	</div>
+
+
+	<% @products.each_slice(3) do |slice| %>
+<div class="row">	
+	<% slice.each do |product| %>	
+	<div class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+              		<div class="row">
+                        <div class="col-xs-12 col-sm-7">
+                        	<h4><%= product.name %></h4>
+                        	<hr>
+                            <p>
+                            	<%= product.description %>
+                            </p>
+                        </div>          
+                        <div class="col-xs-12 col-sm-5 text-center">
+                            <% product.pictures.each do |image| %>
+				<%= image_tag first_picture(product.pictures, image, :preview), :class => "img-responsive" %>
+			    <% end %>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12">
+                            <h2><strong> <%= number_to_currency(product.price, :unit => '$') %> </strong></h2>
+                            <%= button_to "Add to Cart", gallery_add_to_cart_path(product), :method => :post, :class => "btn btn-success btn-block" %>
+                            <a class="btn btn-danger btn-block" href=""><span class="fa fa-plus-circle"></span> Remove from Cart </a>
+                        </div>
+              		</div>
+              </div>
+          </div>
+    </div>
+    <% end %>
+</div>
+
+<div class="clearfix visible-sm-block"></div>    
+	<% end %>
+
+

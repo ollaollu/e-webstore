@@ -6,7 +6,21 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/gallery', to: 'galleries#index'
   get '/contact', to: 'contacts#index'
+
   post '/contact/subscribe', to: 'contacts#create'
+
+  get '/cart', to: 'cart_products#index'
+
+  post '/gallery/add_to_cart', to: 'cart_products#update'
+
+  get '/checkout/registration', to: 'checkouts#new'
+  post '/checkout/registration', to: 'checkouts#create'
+  get '/checkout/payment', to: 'checkouts#payment'
+  post '/checkout/payment', to: 'checkouts#payment_provider'  
+
+  #resources :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

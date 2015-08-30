@@ -112,6 +112,8 @@ GEM
       nido
       redic (~> 1.5.0)
       stal
+    ohm-contrib (2.2.0)
+      ohm (~> 2.2)
     paperclip (4.3.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -217,6 +219,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   ohm (~> 2.3.0)
+  ohm-contrib (= 2.2.0)
   paperclip (~> 4.3.0)
   rails (= 4.2.3)
   rails_admin (~> 0.7.0)

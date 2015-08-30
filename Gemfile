@@ -42,23 +42,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Rails admin gem for backend data management
 gem 'rails_admin', '~> 0.7.0'
 
-# Paperclip gem to handle images
 gem 'paperclip', '~> 4.3.0'
 
-# Amazon gem for image upload to Amazon web services
 gem 'aws-sdk', '~> 2.1.15'
 
-# Specifying Sprockets to see if it fixes image_tag issues in 3.3
-# gem 'sprockets', '~> 3.2.0'
-
-# Ohm gem
 gem 'ohm', '~> 2.3.0'
 
-# Gibbon gem to help with Mailchimp integration
+gem 'ohm-contrib', '2.2.0'
+
 gem 'gibbon', '~> 2.0.0'
