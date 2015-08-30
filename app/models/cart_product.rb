@@ -7,8 +7,7 @@ class CartProduct < Ohm::Model
   attribute :amount_with_measure_name_and_price
   attribute :amount
   attribute :price, Type::Decimal
-  attribute :name
-  attribute :created_at, Type::Time	
+  attribute :name	
 
   reference :cart, :Cart
 

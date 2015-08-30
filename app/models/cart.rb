@@ -31,8 +31,7 @@ class Cart < Ohm::Model
         amount_with_measure_name_and_price: measure_item.amount_with_measure_name_and_price,
         price: measure_item.price,
         name: item.name,
-        cart: self,
-        created_at: Time.now
+        cart: self
       ) if amount_greater_than_or_eql_to_one
     end
   end
