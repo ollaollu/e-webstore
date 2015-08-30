@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="page-header text-center"><h3>Payment Gateway Selection</h3></div>
 	<div class="col-md-6 col-md-offset-3">
-	<%= form_tag('/checkout/payment', method: "post", id: "payment_provider", authenticity_token: true, protect_from_csrf: true, role: "form") do -%>
+	<%= form_tag(checkout_payment_path, method: "post", id: "payment_provider", authenticity_token: true, protect_from_csrf: true, role: "form") do -%>
 		<div class="form-group">
 		   <div class="col-sm-4">
 		   <%= label_tag("Payment Gateway: ") %>

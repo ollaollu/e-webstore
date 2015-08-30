@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/checkout/payment', to: 'checkouts#payment'
   post '/checkout/payment', to: 'checkouts#payment_provider'  
 
-  #resources :users
+  resources :stripe
 
 
   # The priority is based upon order of creation: first created -> highest priority.

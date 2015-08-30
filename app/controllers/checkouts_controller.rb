@@ -31,7 +31,7 @@ class CheckoutsController < ApplicationController
 		elsif selection == "CreditCard"
 			flash[:success] = 'You selected CreditCard.'
 
-			redirect_to gallery_path
+			redirect_to new_stripe_path
 		end
 	end
 

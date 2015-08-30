@@ -53,3 +53,5 @@ gem 'ohm', '~> 2.3.0'
 gem 'ohm-contrib', '2.2.0'
 
 gem 'gibbon', '~> 2.0.0'
+
+gem 'stripe'
