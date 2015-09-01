@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="page-header text-center"><h3>PayPal Payment</h3></div>
+	<div class="col-md-6 col-md-offset-3">
+<%
+=begin 
+%>	
+		<%= link_to 'Pay', @cart.paypal_url(gallery_url), :class => "btn btn-primary" %>
+
+<%
+=end
+%>		<%= link_to "Working link commented out till cart is well implemented", '#' %>
+	</div>
+</div>

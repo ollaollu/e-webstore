@@ -21,17 +21,18 @@ class CheckoutsController < ApplicationController
 		selection = params[:selection]
 
 		if selection == "PayPal"
-			flash[:success] = 'You selected PayPal.'
 
-			redirect_to root_path
+			redirect_to new_paypal_path
+
 		elsif selection == "GooglePay"
-			flash[:success] = 'You selected GooglePay.'
+			flash[:danger] = 'GooglePay not implemented yet.'
 
-			redirect_to about_path
+			redirect_to checkout_payment_path
+
 		elsif selection == "CreditCard"
-			flash[:success] = 'You selected CreditCard.'
 
 			redirect_to new_stripe_path
+			
 		end
 	end
 

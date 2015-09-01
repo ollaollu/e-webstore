@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/cart', to: 'cart_products#index'
 
   post '/gallery/add_to_cart', to: 'cart_products#update'
+  post '/gallery/remove_from_cart/:id', to: 'cart_products#remove', as: 'remove_from_cart'
 
   get '/checkout/registration', to: 'checkouts#new'
   post '/checkout/registration', to: 'checkouts#create'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   post '/checkout/payment', to: 'checkouts#payment_provider'  
 
   resources :stripe
+  resources :paypal
 
 
   # The priority is based upon order of creation: first created -> highest priority.

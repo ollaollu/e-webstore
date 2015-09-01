@@ -1,14 +1,16 @@
 class CartProductsController < ApplicationController
 
   def index
-  	
+    @cart = Cart.new
+  	@cart_products = current_user.cart_products
   end
   
   def update
-  	user.cart.manage_cart_item(item, values)
-
-  	redirect_to :controller => 'galleries', :action => 'index'
+    current_user.Cart.manage_cart_item(@product, params)   
   end
 
+  def remove
+    current_user.Cart.find_cart_product(@product.id).try(:delete)
+  end 
 	
 end
