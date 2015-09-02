@@ -23,9 +23,9 @@
 
                         <div class="col-xs-12 col-sm-12">
                             <h2><strong> <%= number_to_currency(product.price, :unit => '$') %> </strong></h2>
-                            <%= button_to "Add to Cart", gallery_add_to_cart_path(product), :method => :post, :class => "btn btn-success btn-block" %>
+                              <%=link_to "Add to Cart", add_to_cart_path(:id => product.id), :class => "btn btn-success btn-block" %>
                             
-                            <%= button_to "Remove from Cart", remove_from_cart_path(product.id), :method => :post, :class => "btn btn-danger btn-block" %>
+                            <%= link_to "Remove from Cart", remove_from_cart_path(:id => product.id), :class => "btn btn-danger btn-block" %>
                         </div>
               		</div>
               </div>

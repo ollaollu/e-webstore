@@ -11,13 +11,19 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'cart_products#index'
 
-  post '/gallery/add_to_cart', to: 'cart_products#update'
-  post '/gallery/remove_from_cart/:id', to: 'cart_products#remove', as: 'remove_from_cart'
+  get '/gallery/add_to_cart/:id', to: 'cart_products#add', as: 'add_to_cart'
+  get '/gallery/remove_from_cart/:id', to: 'cart_products#remove', as: 'remove_from_cart'
+  get '/gallery/empty_cart', to: 'cart_products#empty_cart', as: 'empty_cart'
 
-  get '/checkout/registration', to: 'checkouts#new'
-  post '/checkout/registration', to: 'checkouts#create'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy' 
+
   get '/checkout/payment', to: 'checkouts#payment'
-  post '/checkout/payment', to: 'checkouts#payment_provider'  
+  post '/checkout/payment', to: 'checkouts#payment_provider' 
 
   resources :stripe
   resources :paypal

@@ -1,3 +1,36 @@
 <h1>Your Cart</h1>
 
-<%= link_to "Checkout", checkout_registration_path %>
+<% if @cart.empty? %>
+
+<%= link_to "You cart is empty, Click to shop for wide variety of wristwatches", gallery_path %>
+
+<% else %>
+<%= link_to "Empty Cart", empty_cart_path %>
+<%
+=begin
+%>
+
+	<% cart_total = 0 %>
+
+	<% @cart.each do |id, quantity| %>
+		<%= cart_item(id).name %>
+		<%= cart_item(id).description %>
+		<%= number_to_currency(cart_item(id).price, :unit => '$') %>
+		Quantity: <%= quantity %>
+		<% item_total(quantity, cart_item(id).price) %>
+	<% end %>
+
+	Cart Total: <% number_to_currency(cart_total, :unit => '$') %>
+
+<%
+=end
+%>
+
+	<% @cart.each do |id, quantity| %>
+		<% product = Product.find_by_id(id) %>
+
+		<p><%= product %></p>
+	<% end %>
+
+<% end %>
+
