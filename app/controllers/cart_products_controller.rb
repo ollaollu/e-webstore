@@ -24,8 +24,6 @@ class CartProductsController < ApplicationController
     else
       cart[id] = 1
     end
-    puts "present: #{session[:cart]}"
-    puts "total cart items: #{session[:cart].length}"
 
     flash[:success] = "#{product.name} added to cart"
     redirect_to :back
@@ -34,6 +32,13 @@ class CartProductsController < ApplicationController
   def remove
     id = params[:id]
     product = Product.find_by_id(id)
+
+    if session[:cart]
+      cart = session[:cart]
+    else
+      session[:cart] = {}
+      cart = session[:cart]
+    end    
 
     if session[:cart].has_key?(id)
       if session[:cart][id] > 1
@@ -47,9 +52,7 @@ class CartProductsController < ApplicationController
     else
       flash[:info] = "#{product.name} is not in cart"
       redirect_to :back 
-    end  
-
-    puts "present: #{session[:cart]}"  
+    end   
    
   end
 

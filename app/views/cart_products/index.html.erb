@@ -25,12 +25,19 @@
 <%
 =end
 %>
+	<% total = 0 %>
 
 	<% @cart.each do |id, quantity| %>
-		<% product = Product.find_by_id(id) %>
-
-		<p><%= product %></p>
+		<% product = cart_item(id) %>
+		<div>
+		<p><%= product.name %></p>
+		<p><%= product.description %></p>
+		<p><%= number_to_currency(product.price, :unit => '$') %></p>
+		<p>Quantity: <%= quantity %></p>
+		<p><%= link_to "Remove from cart", remove_from_cart_path(:id => product.id ) %></p>
+		</div>
+		<% total += item_total(quantity, product.price) %>
 	<% end %>
-
+	Cart Total: <%= number_to_currency(total, :unit => '$') %>
 <% end %>
 
