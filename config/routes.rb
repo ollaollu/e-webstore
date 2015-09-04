@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/checkout/payment', to: 'checkouts#payment'
   post '/checkout/payment', to: 'checkouts#payment_provider' 
 
-  resources :stripe
+  resource :stripe
   resources :paypal
 
 

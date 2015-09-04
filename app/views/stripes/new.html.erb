@@ -1,17 +1,17 @@
 <div class="row">
 	<div class="page-header text-center"><h3>Credit Card Payment - Stripe</h3></div>
 	<div class="col-md-6 col-md-offset-3">
-		<%= form_tag new_stripe_path do %>
+		<%= form_tag stripe_path do %>
 		 <div>
-		     <%= label_tag 'amount', 'To Pay', class: 'amount' %>
-		     <%= label_tag 'amount', "2000", class: 'amount-figure' %>
+		     <%= label_tag 'amount', 'To Pay: ', class: 'amount' %>
+		     <%= label_tag 'amount', "$#{@amount}", class: 'amount-figure' %>
 		 </div>
 		 
 		 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="<%= ENV['stripe_publishable_key'] %>"
 		    data-description="Total items in cart"
 		    data-name="Order 1"
-		    data-amount="2000">
+		    data-amount="<%= @amount_in_cents * 100 %>">
 		  </script>
 		<% end %>
 	</div>

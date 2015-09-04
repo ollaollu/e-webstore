@@ -1,43 +1,49 @@
-<h1>Your Cart</h1>
+<div class="row">
+<div class="page-header"><h3>My Cart</h3></div>
+<div class="col-sm-8 col-xs-12">
 
-<% if @cart.empty? %>
+	<% if @cart.empty? %>
 
-<%= link_to "You cart is empty, Click to shop for wide variety of wristwatches", gallery_path %>
+	<%= link_to "You cart is empty, Click to shop for wide variety of wristwatches", gallery_path %>
 
-<% else %>
-<%= link_to "Empty Cart", empty_cart_path %>
-<%
-=begin
-%>
+	<% else %>
+	<%= link_to "Continue Shopping", gallery_path, :class => "btn btn-primary" %>	
+	<%= link_to "Empty Cart", empty_cart_path, :class => "btn btn-danger" %>
+	<hr>
 
-	<% cart_total = 0 %>
+		<% total = 0 %>	
 
-	<% @cart.each do |id, quantity| %>
-		<%= cart_item(id).name %>
-		<%= cart_item(id).description %>
-		<%= number_to_currency(cart_item(id).price, :unit => '$') %>
-		Quantity: <%= quantity %>
-		<% item_total(quantity, cart_item(id).price) %>
-	<% end %>
+		<% @cart.each do |id, quantity| %>
+			<% product = cart_item(id) %>
+			 <div class="panel panel-default">
+			  <div class="panel-body">
+			   <div class="col-sm-4">
+			    <% product.pictures.each do |image| %>
+				 <%= image_tag first_picture(product.pictures, image, :preview), :class => "img-responsive" %>
+			    <% end %>				
+			   </div>
+			   <div class="col-sm-8">
+			    <p><strong>Name: </strong><%= product.name %></p>
+			    <p><%= product.description %></p>
+			    <p><strong>Price: </strong><%= number_to_currency(product.price, :unit => '$') %></p>
+			    <p><strong>Quantity: </strong><%= quantity %></p>
+			    <p><%= link_to "Remove from cart", remove_from_cart_path(:id => product.id), :class => "btn btn-danger" %></p>				
+			    </div>		
+			   </div>
+			 </div>			
+			<% total += item_total(quantity, product.price) %>
+		<% end %>
+</div>		
+ <div class="col-sm-4 col-xs-12">
+  <div class="panel panel-default">
+	<div class="panel-body">
+		<p><strong>Cart Total: </strong><%= number_to_currency(total, :unit => '$') %></p>
+		<p>Checkout with Paypal: </p>
+		<p><%= link_to "Checkout with Credit Card", new_stripe_path(:amount => total) %></p> 
+	<% end %>		
+	</div>
+  </div>				
+ </div>
+</div>
 
-	Cart Total: <% number_to_currency(cart_total, :unit => '$') %>
-
-<%
-=end
-%>
-	<% total = 0 %>
-
-	<% @cart.each do |id, quantity| %>
-		<% product = cart_item(id) %>
-		<div>
-		<p><%= product.name %></p>
-		<p><%= product.description %></p>
-		<p><%= number_to_currency(product.price, :unit => '$') %></p>
-		<p>Quantity: <%= quantity %></p>
-		<p><%= link_to "Remove from cart", remove_from_cart_path(:id => product.id ) %></p>
-		</div>
-		<% total += item_total(quantity, product.price) %>
-	<% end %>
-	Cart Total: <%= number_to_currency(total, :unit => '$') %>
-<% end %>
 

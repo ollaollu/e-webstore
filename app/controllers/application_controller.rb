@@ -8,10 +8,16 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end 
 
-  def reqire_user
+  def require_user
   	unless current_user
+      flash[:info] = "You need to login or signup before performing that action"
   		redirect_to login_path
   	end
   end
+
+  def amount_in_cents(params)
+    amount_value = (params * 100).to_i
+    session[:amount] = amount_value
+  end  
 
 end

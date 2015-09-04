@@ -1,4 +1,5 @@
 module CartsHelper
+
 	def cart_item(id)
 		Product.find_by_id(id)
 	end
